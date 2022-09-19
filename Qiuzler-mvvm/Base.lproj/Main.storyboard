@@ -23,17 +23,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="564"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR6-1P-fh9">
-                                                <rect key="frame" x="16" y="267" width="358" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <rect key="frame" x="144.5" y="267" width="101" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ZR6-1P-fh9" firstAttribute="centerX" secondItem="c0X-UO-P9K" secondAttribute="centerX" id="6g6-9e-SDF"/>
-                                            <constraint firstItem="ZR6-1P-fh9" firstAttribute="leading" secondItem="c0X-UO-P9K" secondAttribute="leading" constant="16" id="WCX-fC-hcR"/>
+                                            <constraint firstItem="ZR6-1P-fh9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c0X-UO-P9K" secondAttribute="leading" id="WCX-fC-hcR"/>
                                             <constraint firstItem="ZR6-1P-fh9" firstAttribute="centerY" secondItem="c0X-UO-P9K" secondAttribute="centerY" id="haZ-7V-T6G"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZR6-1P-fh9" secondAttribute="trailing" constant="16" id="x2h-2w-rj8"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZR6-1P-fh9" secondAttribute="trailing" id="x2h-2w-rj8"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="arj-ob-ciy">
@@ -129,11 +129,69 @@
                         <outlet property="answerThreeButton" destination="M4H-cz-vwe" id="1nl-9n-aq6"/>
                         <outlet property="answerTwoButton" destination="NuR-Ko-hwq" id="jAc-4r-Uex"/>
                         <outlet property="questionLabel" destination="ZR6-1P-fh9" id="Ll7-MR-ZPN"/>
+                        <segue destination="fCQ-rm-f8J" kind="presentation" identifier="goToShowScore" modalPresentationStyle="fullScreen" id="4zW-g3-ZaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
+        </scene>
+        <!--Show Score View Controller-->
+        <scene sceneID="h9o-dR-5iq">
+            <objects>
+                <viewController id="fCQ-rm-f8J" customClass="ShowScoreViewController" customModule="Qiuzler_mvvm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eC8-ns-BCP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rfr-E5-n9W">
+                                <rect key="frame" x="16" y="399" width="382" height="98"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swl-TM-nfM">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQk-E3-5Jf">
+                                        <rect key="frame" x="0.0" y="68" width="382" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57M-LC-yj7">
+                                <rect key="frame" x="30" y="812" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zO9-6c-WGQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="New quiz">
+                                    <color key="baseBackgroundColor" red="0.53719890120000002" green="0.76906961200000001" blue="0.5293744802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SrU-R2-iuc"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="SrU-R2-iuc" firstAttribute="trailing" secondItem="Rfr-E5-n9W" secondAttribute="trailing" constant="16" id="Klu-pV-Oqm"/>
+                            <constraint firstItem="Rfr-E5-n9W" firstAttribute="leading" secondItem="SrU-R2-iuc" secondAttribute="leading" constant="16" id="PCG-EN-nae"/>
+                            <constraint firstItem="57M-LC-yj7" firstAttribute="leading" secondItem="SrU-R2-iuc" secondAttribute="leading" constant="30" id="PMZ-zd-HoJ"/>
+                            <constraint firstItem="Rfr-E5-n9W" firstAttribute="centerX" secondItem="eC8-ns-BCP" secondAttribute="centerX" id="VDK-4U-dX3"/>
+                            <constraint firstItem="SrU-R2-iuc" firstAttribute="trailing" secondItem="57M-LC-yj7" secondAttribute="trailing" constant="30" id="h9d-IQ-TtO"/>
+                            <constraint firstItem="Rfr-E5-n9W" firstAttribute="centerY" secondItem="eC8-ns-BCP" secondAttribute="centerY" id="jVu-bu-scl"/>
+                            <constraint firstItem="57M-LC-yj7" firstAttribute="bottom" secondItem="SrU-R2-iuc" secondAttribute="bottom" id="pPA-2H-TEf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fPi-is-gzQ"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="tQk-E3-5Jf" id="jAF-PB-Siq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WOj-N1-K1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908.69565217391312" y="94.419642857142847"/>
         </scene>
     </scenes>
     <resources>

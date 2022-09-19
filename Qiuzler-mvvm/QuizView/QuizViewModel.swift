@@ -7,8 +7,13 @@
 
 import Foundation
 
+protocol QuizViewModelDelegate{
+    func showScore(_ quizViewModel: QuizViewModel, _ score: Int)
+}
+
 class QuizViewModel{
     
+    var delegate: QuizViewModelDelegate?
     var questions: Question?
     var answerNumber = 0
     var score = 0
@@ -57,7 +62,10 @@ class QuizViewModel{
             }
             answerNumber += 1
         } else {
+            delegate?.showScore(self, score)
+            score = 0
             answerNumber = 0
         }
+        isCorrect()
     }
 }
