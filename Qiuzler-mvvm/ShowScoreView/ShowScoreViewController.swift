@@ -14,17 +14,18 @@ class ShowScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setScore()
     }
     
 
-    func setScore(){
+    @IBAction func newQuizPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    private func setScore(){
         guard let score = score else {
             scoreLabel.text = "Score not found."
             return
         }
         scoreLabel.text = "\(score) / 10"
     }
-    
 }

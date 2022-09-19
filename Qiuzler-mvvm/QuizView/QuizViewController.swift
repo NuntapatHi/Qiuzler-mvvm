@@ -28,6 +28,11 @@ class QuizViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.delegate = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         viewModel.facthQuizs { [weak self] question in
             self?.question = question
         }

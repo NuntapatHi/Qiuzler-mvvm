@@ -49,7 +49,7 @@
                                                             <constraint firstAttribute="height" constant="100" id="UxM-Ho-u4q"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Button">
+                                                        <buttonConfiguration key="configuration" style="filled" title="-">
                                                             <color key="baseBackgroundColor" red="0.91976243260000001" green="0.67488903379999998" blue="0.88547659919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -63,7 +63,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="74n-Gf-j4E"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Button">
+                                                        <buttonConfiguration key="configuration" style="filled" title="-">
                                                             <color key="baseBackgroundColor" red="0.91976243260000001" green="0.67488903379999998" blue="0.88547659919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -82,7 +82,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Js4-g9-uiV"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Button">
+                                                        <buttonConfiguration key="configuration" style="filled" title="-">
                                                             <color key="baseBackgroundColor" red="0.91976243260000001" green="0.67488903379999998" blue="0.88547659919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -96,7 +96,7 @@
                                                             <constraint firstAttribute="height" constant="100" id="QI5-rE-msX"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Button">
+                                                        <buttonConfiguration key="configuration" style="filled" title="-">
                                                             <color key="baseBackgroundColor" red="0.91976243260000001" green="0.67488903379999998" blue="0.88547659919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -170,6 +170,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="New quiz">
                                     <color key="baseBackgroundColor" red="0.53719890120000002" green="0.76906961200000001" blue="0.5293744802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="newQuizPressed:" destination="fCQ-rm-f8J" eventType="touchUpInside" id="gBP-mE-3jQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SrU-R2-iuc"/>
