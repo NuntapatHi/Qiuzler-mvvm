@@ -17,5 +17,3 @@ struct QuestionDetail: Codable{
     let correct_answer: String
     let incorrect_answers: [String]
 }
-
-

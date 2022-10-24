@@ -17,10 +17,10 @@ class ShowScoreViewController: UIViewController {
         setScore()
     }
     
-
     @IBAction func newQuizPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     private func setScore(){
         guard let score = score else {
             scoreLabel.text = "Score not found."

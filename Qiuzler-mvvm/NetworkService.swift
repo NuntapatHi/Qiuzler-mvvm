@@ -8,6 +8,7 @@
 import Foundation
 
 struct NetworkService{
+    
     static let shared = NetworkService()
     
     private init(){ }

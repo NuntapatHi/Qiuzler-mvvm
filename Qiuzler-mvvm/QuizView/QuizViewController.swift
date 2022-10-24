@@ -15,20 +15,17 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var answerThreeButton: UIButton!
     @IBOutlet weak var answerFouthButton: UIButton!
     
-    
     let viewModel = QuizViewModel()
-    var question: Question?{
+    private var question: Question?{
         didSet{
             setupQuestion()
         }
     }
-    var finalScore: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,8 +37,8 @@ class QuizViewController: UIViewController {
     
     @IBAction func answerPressed(_ sender: UIButton) {
         guard let answer = sender.currentTitle else { return }
-        viewModel.checkAnswer(answer) {
-            self.setupQuestion()
+        viewModel.checkAnswer(answer) { [weak self] in
+            self?.setupQuestion()
         }
     }
     
@@ -50,8 +47,7 @@ class QuizViewController: UIViewController {
             guard let question = question, var choices = choices else {
                 return
             }
-            print("Question is \(question)")
-            print("Choice is \(choices)")
+            
             choices.shuffle()
             DispatchQueue.main.async {
                 self?.questionLabel.text = question
@@ -62,18 +58,17 @@ class QuizViewController: UIViewController {
             }
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToShowScore"{
-            guard let destinationVC = segue.destination as? ShowScoreViewController, let score = finalScore else { return }
-            destinationVC.score = score
+            guard let destinationVC = segue.destination as? ShowScoreViewController else { return }
+            destinationVC.score = viewModel.getScore
         }
     }
 }
 
 extension QuizViewController: QuizViewModelDelegate{
-    func showScore(_ quizViewModel: QuizViewModel, _ score: Int) {
-        finalScore = score
+    func showScore(_ quizViewModel: QuizViewModel) {
         self.performSegue(withIdentifier: "goToShowScore", sender: self)
     }
 }
